@@ -1,7 +1,19 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+**Testing**
+
+**Create new valid array**
++ curl -X POST -d "dynamic_array[length]=15" http://localhost:3000/dynamic_arrays
+
+**Try create new invalid array**
++ curl -X POST -d "dynamic_array[length]=9" http://localhost:3000/dynamic_arrays
+
+**Get list of all array**
+
++ curl -X GET http://localhost:3000/dynamic_arrays
+
+**Get largest range in array ID**
++ curl -X GET http://localhost:3000/dynamic_arrays/{:id}
 
 Things you may want to cover:
 
@@ -29,16 +41,4 @@ rake db:create
 
 * Deployment instructions
 
-Testing
-
-Create new valid array
-curl -X POST -d "dynamic_array[length]=15" http://localhost:3000/dynamic_arrays
-
-Try create new invalid array
-curl -X POST -d "dynamic_array[length]=9" http://localhost:3000/dynamic_arrays
-
-Get list of all array
-curl -X GET http://localhost:3000/dynamic_arrays
-
-Get largest range in array ID
-curl -X GET http://localhost:3000/dynamic_arrays/{:id}
+rails s
