@@ -3,13 +3,16 @@
 # To used to calculate a the largest range intro Array
 class GetLargestRange
   include Interactor
-
+  
   def call
+    # Validate input
+    raise ArgumentError, 'Required attribute array is missing' unless context.array
+
     sorted_array = context.array.internal_array.sort
     ranges_array = generate_range(sorted_array)
-    puts "#{ranges_array}"
+    puts ranges_array.to_s
     result = calculate_largest_range(ranges_array)
-    puts "#{result}"
+    puts result.to_s
     context.range = result
   rescue StandardError => e
     context.fail!(error: e.message)
@@ -36,4 +39,6 @@ class GetLargestRange
     end
     [largest_range.first, largest_range.last]
   end
+
+
 end
